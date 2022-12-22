@@ -1,6 +1,6 @@
 package com.example.topreddit.api
 
-import
+
 import com.example.topreddit.model.RedditNewsResponse
 import retrofit2.Call
 import retrofit2.http.GET
