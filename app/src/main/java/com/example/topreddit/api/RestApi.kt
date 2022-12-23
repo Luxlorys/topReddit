@@ -18,7 +18,7 @@ class RestApi {
     }
 
 
-    fun getNews(after: String, limit: String): Call<RedditNewsResponse> {
-        return redditApi.getTop(after, limit)
+    fun getNews(): Call<RedditNewsResponse> {
+        return redditApi.getTop()
     }
 }

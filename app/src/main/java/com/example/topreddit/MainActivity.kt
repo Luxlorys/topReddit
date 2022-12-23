@@ -1,5 +1,6 @@
 package com.example.topreddit
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.topreddit.api.RestApi
@@ -8,24 +9,38 @@ class MainActivity : AppCompatActivity() {
 
     private val api: RestApi = RestApi()
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val callResponse = api.getNews("", "")
-        val response = callResponse.execute()
+        val response = api.getNews()
 
-//        if (response.isSuccessful) {
-//            val news = response.body().data.children.map {
+        if(response.execute().isSuccessful) {
+            val news = response.execute().body()?.data?.children?.map {
+                val item = it.data
+            }
+        }
+
+
+//        val listview = findViewById<ListView>(R.id.listView)
+//        val arrayAdapter: ArrayAdapter<*>
+//        val users = arrayOf(
+//            "user1", "user2", "user3"
+//        )
+//
+//        arrayAdapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, users)
+//        listview.adapter = arrayAdapter
+
+//        if(response.isSuccessful) {
+//            val news = response.body()?.data?.children?.map {
 //                val item = it.data
-//                RedditNewsItem(item.author, item.title, item.num_comments,
-//                    item.created, item.thumbnail, item.url)
 //            }
-//            subscriber.onNext(news)
-//            subscriber.onCompleted()
-//        } else {
-//            subscriber.onError(Throwable(response.message()))
 //        }
+
+
+
+//        textView.setText("hello world").toString()
 
     }
 }

@@ -8,7 +8,6 @@ import retrofit2.http.Query
 
 interface RedditApi {
 
-    @GET("/top:json")
-    fun getTop(@Query("after") after: String,
-               @Query("limit") limit: String): Call<RedditNewsResponse>;
+    @GET("/top.json?limit=10")
+    fun getTop(): Call<RedditNewsResponse>;
 }

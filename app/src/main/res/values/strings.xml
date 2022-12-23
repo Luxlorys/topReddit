@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">topReddit</string>
+    <string name="textview">TextView</string>
+    <string name="someText" />
 </resources>
