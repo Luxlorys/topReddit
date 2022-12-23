@@ -6,19 +6,19 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 class RestApi {
-    private val redditApi: RedditApi
+//    private val redditApi: RedditApi
 
-    init {
-        val retrofit = Retrofit.Builder()
-            .baseUrl("https://www.reddit.com")
-            .addConverterFactory(MoshiConverterFactory.create())
-            .build()
+//    init {
+//        val retrofit = Retrofit.Builder()
+//            .baseUrl("https://www.reddit.com")
+//            .addConverterFactory(MoshiConverterFactory.create())
+//            .build()
+//
+//        redditApi = retrofit.create(RedditApi::class.java)
+//    }
 
-        redditApi = retrofit.create(RedditApi::class.java)
-    }
 
-
-    fun getNews(): Call<RedditNewsResponse> {
-        return redditApi.getTop()
-    }
+//    fun getNews(): Call<RedditNewsResponse> {
+//        return redditApi.getTop()
+//    }
 }
