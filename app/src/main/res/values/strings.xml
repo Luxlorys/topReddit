@@ -2,4 +2,8 @@
     <string name="app_name">topReddit</string>
     <string name="textview">TextView</string>
     <string name="someText" />
+    <string name="title">Title</string>
+    <string name="title_text">Title</string>
+    <string name="john_smith">John Smith</string>
+    <string name="created">TextView</string>
 </resources>
