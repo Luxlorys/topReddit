@@ -20,12 +20,12 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var newsAdapter: NewsAdapter
     lateinit var linearLayoutManager: LinearLayoutManager
-    private var recyclerView: RecyclerView = findViewById(R.id.recyclerView)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
         recyclerView.setHasFixedSize(true)
         linearLayoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = linearLayoutManager
@@ -50,6 +50,8 @@ class MainActivity : AppCompatActivity() {
                 val responseBody = response.body()!!
 
                 newsAdapter = NewsAdapter(baseContext, responseBody)
+
+                val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
                 recyclerView.adapter = newsAdapter
             }
 
