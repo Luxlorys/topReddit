@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.topreddit.api.RedditApi
+import com.example.topreddit.model.RedditNewsDataResponse
 import com.example.topreddit.model.RedditNewsResponse
 import retrofit2.Call
 import retrofit2.Callback
@@ -42,10 +43,9 @@ class MainActivity : AppCompatActivity() {
 
         val retrofitData = retrofit.getTop()
 
-        retrofitData.enqueue(object : Callback<RedditNewsResponse?> {
+        retrofitData.enqueue(object : Callback<List<RedditNewsResponse>?> {
             @SuppressLint("NotifyDataSetChanged")
-            override fun onResponse(call: Call<RedditNewsResponse?>, response: Response<RedditNewsResponse?>) {
-                val sb = StringBuilder()
+            override fun onResponse(call: Call<List<RedditNewsResponse>?>, response: Response<List<RedditNewsResponse>?>) {
 
                 val responseBody = response.body()!!
 
@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
                 recyclerView.adapter = newsAdapter
             }
 
-            override fun onFailure(call: Call<RedditNewsResponse?>, t: Throwable) {
+            override fun onFailure(call: Call<List<RedditNewsResponse>?>, t: Throwable) {
                 Log.d("MainActivity", "onFailure" + t.message)
             }
         })

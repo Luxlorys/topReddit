@@ -6,9 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.topreddit.model.RedditNewsDataResponse
 import com.example.topreddit.model.RedditNewsResponse
 
-class NewsAdapter(private val context: Context, private val newsList: RedditNewsResponse): RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
+class NewsAdapter(private val context: Context, private val newsList: List<RedditNewsResponse>): RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         var titleId: TextView
@@ -26,12 +27,14 @@ class NewsAdapter(private val context: Context, private val newsList: RedditNews
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.titleId.text = newsList.data.children[position].data.title.toString()
-        holder.dateId.text = newsList.data.children[position].data.created.toString()
+        holder.titleId.text = newsList[position].data.children[position].data.title
+        holder.dateId.text = newsList[position].data.children[position].data.created.toString()
+//        holder.titleId.text = newsList.title
+//        holder.dateId.text = newsList.created.toString()
     }
 
     override fun getItemCount(): Int {
-        return newsList.data.children.size;
+        return 10;
     }
 
 
